@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_IMAGE_NAME = 'calculator'
         GITHUB_REPO_URL = 'https://github.com/AkhilPuppala/calculator.git'
-        DOCKER_HUB_REPO = 'AkhilPuppala/calculator'
+        DOCKER_HUB_REPO = 'akhilpuppala/calculator'
     }
 
     stages {
@@ -32,8 +32,8 @@ pipeline {
                     // Use the Docker Hub credentials stored in Jenkins (DockerHubCred)
                     docker.withRegistry('https://index.docker.io/v1/', 'DockerHubCred') {
                         // Tag and push the Docker image to Docker Hub
-                        sh "docker tag ${DOCKER_IMAGE_NAME} docker.io/AkhilPuppala/${DOCKER_IMAGE_NAME}:latest"
-                        sh "docker push docker.io/AkhilPuppala/${DOCKER_IMAGE_NAME}:latest"
+                        sh "docker tag ${DOCKER_IMAGE_NAME} docker.io/akhilpuppala/${DOCKER_IMAGE_NAME}:latest"
+                        sh "docker push docker.io/akhilpuppala/${DOCKER_IMAGE_NAME}:latest"
                     }
                 }
             }
